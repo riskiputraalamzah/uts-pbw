@@ -29,4 +29,22 @@ const router = createRouter({
   ]
 })
 
+router.afterEach((to, from) => {
+  // to and from are both route objects.
+  // const myScript = document.querySelector('.my-script')
+  // myScript.innerHTML = ''
+  // const links = [
+  //   'assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
+  //   'assets/vendor/glightbox/js/glightbox.min.js',
+  //   'assets/vendor/isotope-layout/isotope.pkgd.min.js',
+  //   'assets/vendor/swiper/swiper-bundle.min.js',
+  //   'assets/vendor/php-email-form/validate.js',
+  //   'assets/js/main.js'
+  // ]
+  // links.forEach((link) => {
+  //   let recaptchaScript = document.createElement('script')
+  //   recaptchaScript.setAttribute('src', link)
+  //   myScript.appendChild(recaptchaScript)
+  // })
+})
 export default router

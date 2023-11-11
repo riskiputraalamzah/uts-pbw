@@ -78,11 +78,11 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function (e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+  // on('click', '.mobile-nav-toggle', function (e) {
+  //   select('#navbar').classList.toggle('navbar-mobile')
+  //   this.classList.toggle('bi-list')
+  //   this.classList.toggle('bi-x')
+  // })
 
   /**
    * Mobile nav dropdowns activate
@@ -213,12 +213,12 @@
   })
 })()
 
-document.querySelectorAll('.navbar li').forEach((e) => {
-  e.addEventListener('click', function () {
-    if (document.querySelector('.navbar').classList.contains('navbar-mobile')) {
-      document.querySelector('#navbar').classList.toggle('navbar-mobile')
-      document.querySelector('.mobile-nav-toggle').classList.toggle('bi-list')
-      document.querySelector('.mobile-nav-toggle').classList.toggle('bi-x')
-    }
-  })
-})
+// document.querySelectorAll('.navbar li').forEach((e) => {
+//   e.addEventListener('click', function () {
+//     if (document.querySelector('.navbar').classList.contains('navbar-mobile')) {
+//       document.querySelector('.navbar').classList.toggle('navbar-mobile')
+//       document.querySelector('.mobile-nav-toggle').classList.toggle('bi-list')
+//       document.querySelector('.mobile-nav-toggle').classList.toggle('bi-x')
+//     }
+//   })
+// })

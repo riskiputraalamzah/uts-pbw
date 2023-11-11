@@ -1,23 +1,23 @@
 <script setup>
-// import { onMounted } from 'vue'
-// onMounted(() => {
-//   const links = [
-//     'assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
-//     'assets/vendor/glightbox/js/glightbox.min.js',
-//     'assets/vendor/isotope-layout/isotope.pkgd.min.js',
-//     'assets/vendor/swiper/swiper-bundle.min.js',
-//     'assets/vendor/php-email-form/validate.js',
-//     'assets/js/main.js'
-//   ]
+import { onMounted } from 'vue'
+onMounted(() => {
+  const links = [
+    'assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
+    'assets/vendor/glightbox/js/glightbox.min.js',
+    'assets/vendor/isotope-layout/isotope.pkgd.min.js',
+    'assets/vendor/swiper/swiper-bundle.min.js',
+    'assets/vendor/php-email-form/validate.js',
+    'assets/js/main.js'
+  ]
 
-//   const myScript = document.querySelector('.my-script')
-//   myScript.innerHTML = ''
-//   links.forEach((link) => {
-//     let recaptchaScript = document.createElement('script')
-//     recaptchaScript.setAttribute('src', link)
-//     myScript.appendChild(recaptchaScript)
-//   })
-// })
+  const myScript = document.querySelector('.my-script')
+  myScript.innerHTML = ''
+  links.forEach((link) => {
+    let recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', link)
+    myScript.appendChild(recaptchaScript)
+  })
+})
 </script>
 <template>
   <div>
@@ -39,18 +39,42 @@
           <!-- Slide 1 -->
           <div
             class="carousel-item active"
-            style="background-image: url(assets/hero-content/1.jpg)"
+            style="background-image: url(/assets/hero-content/1.jpg)"
           ></div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(assets/hero-content/2.jpg)"></div>
-          <div class="carousel-item" style="background-image: url(assets/hero-content/3.jpg)"></div>
-          <div class="carousel-item" style="background-image: url(assets/hero-content/4.jpg)"></div>
-          <div class="carousel-item" style="background-image: url(assets/hero-content/5.jpg)"></div>
-          <div class="carousel-item" style="background-image: url(assets/hero-content/6.jpg)"></div>
-          <div class="carousel-item" style="background-image: url(assets/hero-content/7.jpg)"></div>
-          <div class="carousel-item" style="background-image: url(assets/hero-content/8.jpg)"></div>
-          <div class="carousel-item" style="background-image: url(assets/hero-content/9.jpg)"></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/2.jpg)"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/3.jpg)"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/4.jpg)"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/5.jpg)"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/6.jpg)"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/7.jpg)"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/8.jpg)"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url(/assets/hero-content/9.jpg)"
+          ></div>
         </div>
 
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
@@ -78,7 +102,7 @@
 
           <div class="row content">
             <div class="col-lg-6">
-              <img src="assets/img/sambutan.jpeg" class="img-fluid img-thumbnail" alt="" />
+              <img src="/assets/img/sambutan.jpeg" class="img-fluid img-thumbnail" alt="" />
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0">
               <p>
@@ -93,11 +117,7 @@
               </p>
 
               <p>
-                MDMC bergerak dalam kegiatan penanggulangan bencana sesuai dengan definisi kegiatan
-                penanggulangan bencana baik pada kegiatan Mitigasi dan Kesiapsiagaan, Tanggap
-                Darurat dan juga Rehabilitasi. MDMC mengadopsi kode etik kerelawanan kemanusiaan dan
-                piagam kemanusiaan yang berlaku secara internasional, mengembangkan misi pengurangan
-                risiko bencana selaras dengan .....
+                MDMC bergerak dalam kegiatan penanggulangan bencana sesuai dengan definisi .....
               </p>
               <!-- <a href="our-story.html" class="btn-learn-more">Learn More</a> -->
               <router-link to="/profil" class="btn-learn-more">Lihat Selengkapnya</router-link>
@@ -179,43 +199,67 @@
           <div class="recent-photos-slider swiper">
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-1.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-1.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-1.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-1.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-2.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-2.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-2.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-2.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-3.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-3.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-3.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-3.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-4.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-4.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-4.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-4.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-5.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-5.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-5.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-5.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-6.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-6.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-6.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-6.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-7.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-7.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-7.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-7.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="assets/img/recent-photos/recent-photos-8.jpg" class="glightbox"
-                  ><img src="assets/img/recent-photos/recent-photos-8.jpg" class="img-fluid" alt=""
+                <a href="/assets/img/recent-photos/recent-photos-8.jpg" class="glightbox"
+                  ><img
+                    src="/assets/img/recent-photos/recent-photos-8.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></a>
               </div>
             </div>
