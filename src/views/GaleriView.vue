@@ -58,7 +58,10 @@ const result = [
                 <h4>{{ data.title }}</h4>
                 <p>{{ data.desc }}</p>
                 <div class="gallery-links">
-                  <a href="'/assets/hero-content/'+data.url" class="glightbox" :title="data.title"
+                  <a
+                    :href="'/assets/hero-content/' + data.url"
+                    class="glightbox"
+                    :title="data.title"
                     ><i class="bx bx-plus"></i
                   ></a>
                 </div>
