@@ -70,9 +70,7 @@ router.afterEach((to, from) => {
     'assets/js/main.js'
   ]
   setTimeout(() => {
-    console.log(myScript.childElementCount)
     append(links)
-    console.log(myScript.childElementCount)
   }, 1000)
 })
 export default router
