@@ -132,51 +132,27 @@ onMounted(() => {
         <div class="container">
           <div class="row">
             <div class="col-lg-4 col-md-6 icon-box">
-              <div class="icon"><i class="bi bi-laptop"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <div class="icon"><i class="bi bi-truck"></i></div>
+              <h4 class="title"><a href="">Bantuan Kemanusian</a></h4>
               <p class="description">
-                Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                occaecati cupiditate non provident
+                Tanggap Darurat - Rehabilitasi Rekonstruksi dalam sistem One Muhammadiyah One
+                Response sesuai prinsip - prinsip kemanusiaan
               </p>
             </div>
             <div class="col-lg-4 col-md-6 icon-box">
-              <div class="icon"><i class="bi bi-bar-chart"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
+              <div class="icon"><i class="bi bi-person-hearts"></i></div>
+              <h4 class="title"><a href="">Mitigasi Bencana</a></h4>
               <p class="description">
-                Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat tarad limino ata
+                Bekerja bersama sekolah, rumah sakit, pelajar, pemuda, perempuan, komunitas, media
+                dan pemerintah menciptakan masyarakat tangguh.
               </p>
             </div>
             <div class="col-lg-4 col-md-6 icon-box">
-              <div class="icon"><i class="bi bi-bounding-box"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <div class="icon"><i class="bi bi-bookmark-heart"></i></div>
+              <h4 class="title"><a href="">Penguatan Sistem</a></h4>
               <p class="description">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur
-              </p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box">
-              <div class="icon"><i class="bi bi-broadcast"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum
-              </p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box">
-              <div class="icon"><i class="bi bi-camera"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                praesentium voluptatum deleniti atque
-              </p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box">
-              <div class="icon"><i class="bi bi-diagram-3"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">
-                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-                soluta nobis est eligendi
+                Manajemen kerelawanan, penguatan organisasi, pengembangan kerjasama & jaringan
+                memperkuat sistem PB di Indonesia
               </p>
             </div>
           </div>
@@ -188,78 +164,55 @@ onMounted(() => {
       <section id="recent-photos" class="recent-photos">
         <div class="container">
           <div class="section-title">
-            <h2>Recent Photos</h2>
-            <p>
-              Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
-              quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui
-              impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
-            </p>
+            <h2>Dokumentasi Kegitan</h2>
+            <p>Berikut beberapa dokumentasi selama kegiatan berlangsung</p>
           </div>
 
           <div class="recent-photos-slider swiper">
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-1.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-1.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/1.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/1.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-2.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-2.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/2.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/2.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-3.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-3.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/3.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/3.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-4.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-4.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/4.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/4.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-5.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-5.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/5.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/5.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-6.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-6.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/6.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/6.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-7.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-7.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/7.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/7.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="/assets/img/recent-photos/recent-photos-8.jpg" class="glightbox"
-                  ><img
-                    src="/assets/img/recent-photos/recent-photos-8.jpg"
-                    class="img-fluid"
-                    alt=""
+                <a href="/assets/hero-content/8.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/8.jpg" class="img-fluid" alt=""
+                /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="/assets/hero-content/9.jpg" class="glightbox"
+                  ><img src="/assets/hero-content/9.jpg" class="img-fluid" alt=""
                 /></a>
               </div>
             </div>

@@ -10,9 +10,7 @@ import Footer from './components/Footer.vue'
     <div>
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
-         
-            <component :is="Component" />
-         
+          <component :is="Component" />
         </transition>
       </router-view>
     </div>
@@ -23,7 +21,7 @@ import Footer from './components/Footer.vue'
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,

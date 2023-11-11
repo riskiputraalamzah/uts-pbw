@@ -25,26 +25,18 @@ const router = createRouter({
       path: '/kontak-kami',
       name: 'kontak',
       component: () => import('../views/KontakView.vue')
+    },
+    {
+      path: '/berita',
+      name: 'berita',
+      component: () => import('../views/BeritaView.vue')
+    },
+    {
+      path: '/galeri',
+      name: 'galeri',
+      component: () => import('../views/GaleriView.vue')
     }
   ]
 })
 
-router.afterEach((to, from) => {
-  // to and from are both route objects.
-  // const myScript = document.querySelector('.my-script')
-  // myScript.innerHTML = ''
-  // const links = [
-  //   'assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
-  //   'assets/vendor/glightbox/js/glightbox.min.js',
-  //   'assets/vendor/isotope-layout/isotope.pkgd.min.js',
-  //   'assets/vendor/swiper/swiper-bundle.min.js',
-  //   'assets/vendor/php-email-form/validate.js',
-  //   'assets/js/main.js'
-  // ]
-  // links.forEach((link) => {
-  //   let recaptchaScript = document.createElement('script')
-  //   recaptchaScript.setAttribute('src', link)
-  //   myScript.appendChild(recaptchaScript)
-  // })
-})
 export default router

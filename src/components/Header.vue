@@ -31,11 +31,15 @@ const toggle = (evt) => {
           <li @click="toggle($event.target)">
             <router-link active-class="active" to="/profil">Profil</router-link>
           </li>
-          <li @click="toggle($event.target)"><a href="events.html">Events</a></li>
-          <li @click="toggle($event.target)"><a href="gallery.html">Gallery</a></li>
+          <li @click="toggle($event.target)">
+            <router-link active-class="active" to="/berita">Berita</router-link>
+          </li>
+          <li @click="toggle($event.target)">
+            <router-link active-class="active" to="/galeri">Galeri</router-link>
+          </li>
 
           <li @click="toggle($event.target)">
-            <router-link active-class="active" to="/kontak-kami">Kontak Kami</router-link>
+            <router-link active-class="active" to="/kontak-kami">Kontak</router-link>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle" @click="toggle($event.target)"></i>
