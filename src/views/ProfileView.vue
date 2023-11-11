@@ -26,7 +26,7 @@
             </p>
           </div>
           <div class="col-lg-6 order-1 order-lg-2">
-            <img src="assets/img/sambutan.jpeg" class="img-fluid img-thumbnail" alt="" />
+            <img src="/assets/img/sambutan.jpeg" class="img-fluid img-thumbnail" alt="" />
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
             <p>
