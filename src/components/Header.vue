@@ -16,9 +16,9 @@ const toggle = (evt) => {
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
       <h1 class="logo">
-        <a href="index.html">
+        <router-link to="/">
           <img src="/assets/img/logo-web.png" alt="" class="img-fluid" />
-        </a>
+        </router-link>
       </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -26,20 +26,20 @@ const toggle = (evt) => {
       <nav id="navbar" class="navbar">
         <ul>
           <li @click="toggle($event.target)">
-            <router-link active-class="active" to="/">Home</router-link>
+            <router-link active-class="active disabled" to="/">Home</router-link>
           </li>
           <li @click="toggle($event.target)">
-            <router-link active-class="active" to="/profil">Profil</router-link>
+            <router-link active-class="active disabled" to="/profil">Profil</router-link>
           </li>
           <li @click="toggle($event.target)">
-            <router-link active-class="active" to="/berita">Berita</router-link>
+            <router-link active-class="active disabled" to="/berita">Berita</router-link>
           </li>
           <li @click="toggle($event.target)">
-            <router-link active-class="active" to="/galeri">Galeri</router-link>
+            <router-link active-class="active disabled" to="/galeri">Galeri</router-link>
           </li>
 
           <li @click="toggle($event.target)">
-            <router-link active-class="active" to="/kontak-kami">Kontak</router-link>
+            <router-link active-class="active disabled" to="/kontak-kami">Kontak</router-link>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle" @click="toggle($event.target)"></i>
@@ -48,3 +48,8 @@ const toggle = (evt) => {
     </div>
   </header>
 </template>
+<style scoped>
+a.disabled {
+  pointer-events: none;
+}
+</style>
