@@ -1,3 +1,8 @@
+<script setup>
+const toggleLoading = () => {
+  document.querySelector('.loading').classList.toggle('close')
+}
+</script>
 <template>
   <div>
     <!-- ======= Header ======= -->
@@ -99,7 +104,9 @@
                 MDMC bergerak dalam kegiatan penanggulangan bencana sesuai dengan definisi .....
               </p>
               <!-- <a href="our-story.html" class="btn-learn-more">Learn More</a> -->
-              <router-link to="/profil" class="btn-learn-more">Lihat Selengkapnya</router-link>
+              <router-link to="/profil" @click="toggleLoading" class="btn-learn-more"
+                >Lihat Selengkapnya</router-link
+              >
             </div>
           </div>
         </div>

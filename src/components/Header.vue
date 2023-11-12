@@ -1,7 +1,14 @@
 <script setup>
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+const location = useRoute()
+
+const disabled = computed(() => location.path == '/')
+
 const toggleLoading = () => {
   document.querySelector('.loading').classList.toggle('close')
 }
+
 const toggle = (evt) => {
   const isHamburgerMenu = evt.classList.contains('mobile-nav-toggle')
   const navbar = document.querySelector('.navbar')
@@ -18,8 +25,8 @@ const toggle = (evt) => {
 <template>
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo">
-        <router-link to="/">
+      <h1 :class="[disabled ? 'disabled' : '', 'logo']">
+        <router-link to="/" @click="toggleLoading">
           <img src="/assets/img/logo-web.png" alt="" class="img-fluid" />
         </router-link>
       </h1>
@@ -62,7 +69,7 @@ const toggle = (evt) => {
   </header>
 </template>
 <style scoped>
-a.disabled {
+.disabled {
   pointer-events: none;
 }
 </style>
