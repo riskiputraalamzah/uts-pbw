@@ -38,12 +38,17 @@ const router = createRouter({
     }
   ]
 })
+
+const toggleLoading = () => {
+  document.querySelector('.loading').classList.toggle('close')
+}
 router.beforeResolve((to, from, next) => {
   // to and from are both route objects. must call `next`.
   document.querySelector('.my-script').innerHTML = ''
   next()
 })
 router.beforeEach((to, from, next) => {
+  // toggleLoading()
   // to and from are both route objects. must call `next`.
   document.querySelector('.my-script').innerHTML = ''
   next()
@@ -57,6 +62,9 @@ const append = (links) => {
   })
 }
 router.afterEach((to, from) => {
+  setTimeout(() => {
+    toggleLoading()
+  }, 1000)
   const myScript = document.querySelector('.my-script')
 
   myScript.innerHTML = ''

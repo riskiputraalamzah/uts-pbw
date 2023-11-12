@@ -1,4 +1,7 @@
 <script setup>
+const toggleLoading = () => {
+  document.querySelector('.loading').classList.toggle('close')
+}
 const toggle = (evt) => {
   const isHamburgerMenu = evt.classList.contains('mobile-nav-toggle')
   const navbar = document.querySelector('.navbar')
@@ -9,6 +12,7 @@ const toggle = (evt) => {
     if (navbar.classList.contains('navbar-mobile')) {
       navbar.classList.toggle('navbar-mobile')
     }
+    toggleLoading()
   }
 }
 </script>

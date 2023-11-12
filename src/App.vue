@@ -6,6 +6,9 @@ import Footer from './components/Footer.vue'
 
 <template>
   <div>
+    <div class="loading">
+      <img src="/assets/img/logo-web.png" alt="" />
+    </div>
     <HeaderVue />
     <div>
       <router-view v-slot="{ Component }">
@@ -27,5 +30,26 @@ import Footer from './components/Footer.vue'
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.loading {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: var(--primaryColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 1;
+}
+.loading img {
+  width: calc(200px + 20vw);
+}
+.loading.close {
+  transition: all 0.5s ease;
+  opacity: 0;
+  z-index: -9999;
 }
 </style>

@@ -14,7 +14,7 @@ const copy = () => {
           <img src="/assets/img/logo-web.png" alt="" class="img-fluid" />
         </div>
       </div>
-      <h3>"Together for Humanity"</h3>
+      <div class="fs-1 fw-bold mb-3">"Together for Humanity"</div>
       <p>
         Muhammadiyah Disaster Management Center (MDMC) adalah sebutan dalam bahasa inggris dari
         Lembaga Penanggulangan Bencana Muhammadiyah yang merupakan salah satu unsur pembantu
