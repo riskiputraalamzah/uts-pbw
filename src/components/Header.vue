@@ -12,7 +12,6 @@ const toggle = (evt) => {
     if (navbar.classList.contains('navbar-mobile')) {
       navbar.classList.toggle('navbar-mobile')
     }
-    toggleLoading()
   }
 }
 </script>
@@ -30,20 +29,30 @@ const toggle = (evt) => {
       <nav id="navbar" class="navbar">
         <ul>
           <li @click="toggle($event.target)">
-            <router-link active-class="active disabled" to="/">Home</router-link>
+            <router-link active-class="active disabled" @click="toggleLoading" to="/"
+              >Home</router-link
+            >
           </li>
           <li @click="toggle($event.target)">
-            <router-link active-class="active disabled" to="/profil">Profil</router-link>
+            <router-link active-class="active disabled" @click="toggleLoading" to="/profil"
+              >Profil</router-link
+            >
           </li>
           <li @click="toggle($event.target)">
-            <router-link active-class="active disabled" to="/berita">Berita</router-link>
+            <router-link active-class="active disabled" @click="toggleLoading" to="/berita"
+              >Berita</router-link
+            >
           </li>
           <li @click="toggle($event.target)">
-            <router-link active-class="active disabled" to="/galeri">Galeri</router-link>
+            <router-link active-class="active disabled" @click="toggleLoading" to="/galeri"
+              >Galeri</router-link
+            >
           </li>
 
           <li @click="toggle($event.target)">
-            <router-link active-class="active disabled" to="/kontak-kami">Kontak</router-link>
+            <router-link active-class="active disabled" @click="toggleLoading" to="/kontak-kami"
+              >Kontak</router-link
+            >
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle" @click="toggle($event.target)"></i>
