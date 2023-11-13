@@ -61,12 +61,12 @@ const toggleLoading = () => {
             <div class="display-5 text-center fw-bold mb-5">Hubungi Kami secara langsung !!!</div>
             <div class="row">
               <div class="col-6">
-                <a href="mailto:riskialamzah1@gmail.com" class="btn btn-outline-danger btn-large">
+                <a href="mailto:riskialamzah1@gmail.com" class="btn btn-outline-danger ">
               <i class="bi bi-envelope"></i> Kirim Surel</a
             >
               </div>
               <div class="col-6">
-                <a href="https://wa.me/6282233361877" class="btn btn-success btn-large">
+                <a href="https://wa.me/6282233361877" class="btn btn-success ">
               <i class="bi bi-telephone"></i> Klik Disini</a
             >
               </div>
