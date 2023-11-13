@@ -59,9 +59,19 @@ const toggleLoading = () => {
             class="col-lg-7 col-md-8 mt-5 mt-lg-0 justify-content-center align-items-center d-flex flex-column"
           >
             <div class="display-5 text-center fw-bold mb-5">Hubungi Kami secara langsung !!!</div>
-            <a href="https://wa.me/6282233361877" class="btn btn-success btn-large w-75">
+            <div class="row">
+              <div class="col-6">
+                <a href="mailto:riskialamzah1@gmail.com" class="btn btn-outline-danger btn-large">
+              <i class="bi bi-envelope"></i> Kirim Surel</a
+            >
+              </div>
+              <div class="col-6">
+                <a href="https://wa.me/6282233361877" class="btn btn-success btn-large">
               <i class="bi bi-telephone"></i> Klik Disini</a
             >
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
