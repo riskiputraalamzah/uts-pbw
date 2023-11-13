@@ -61,7 +61,7 @@ const toggleLoading = () => {
             <div class="display-5 text-center fw-bold mb-5">Hubungi Kami secara langsung !!!</div>
             <div class="row text-center">
               <div class="col-6">
-                <a href="mailto:riskialamzah1@gmail.com" class="btn btn-outline-danger btn-large">
+                <a href="mailto:riskialamzah1@gmail.com" class="btn btn-danger btn-large">
               <i class="bi bi-envelope"></i><br />Kirim Surel</a
             >
               </div>
