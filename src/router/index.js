@@ -42,17 +42,17 @@ const router = createRouter({
 const toggleLoading = () => {
   document.querySelector('.loading').classList.toggle('close')
 }
-router.beforeResolve((to, from, next) => {
-  // to and from are both route objects. must call `next`.
-  document.querySelector('.my-script').innerHTML = ''
-  next()
-})
-router.beforeEach((to, from, next) => {
-  // toggleLoading()
-  // to and from are both route objects. must call `next`.
-  document.querySelector('.my-script').innerHTML = ''
-  next()
-})
+// router.beforeResolve((to, from, next) => {
+//   // to and from are both route objects. must call `next`.
+//   document.querySelector('.my-script').innerHTML = ''
+//   next()
+// })
+// router.beforeEach((to, from, next) => {
+//   // toggleLoading()
+//   // to and from are both route objects. must call `next`.
+//   document.querySelector('.my-script').innerHTML = ''
+//   next()
+// })
 
 const append = (links) => {
   links.forEach((link) => {
@@ -62,23 +62,29 @@ const append = (links) => {
   })
 }
 router.afterEach((to, from) => {
+  // const myScript = document.querySelector('.my-script')
+
+  // const links = ['assets/js/main.js']
+
+  // myScript.innerHTML = ''
+
+  // append(links)
+
+  // new Promise((resolve, reject) => {
+  //   let script = document.createElement('script')
+  //   script.onload = () => {
+  //    resolve(import(someComponent))
+  //   }
+  //   script.async = true
+  //   script.src = 'https://maps.googleapis.com/maps/api/js?key=APIKEY&libraries=places'
+  //   document.head.appendChild(script)
+  //  })
+
+  // setTimeout(() => {
+  // }, 1000)
+
   setTimeout(() => {
     toggleLoading()
-  }, 1000)
-  const myScript = document.querySelector('.my-script')
-
-  myScript.innerHTML = ''
-
-  const links = [
-    'assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
-    'assets/vendor/glightbox/js/glightbox.min.js',
-    'assets/vendor/isotope-layout/isotope.pkgd.min.js',
-    'assets/vendor/swiper/swiper-bundle.min.js',
-    'assets/vendor/php-email-form/validate.js',
-    'assets/js/main.js'
-  ]
-  setTimeout(() => {
-    append(links)
   }, 1000)
 })
 export default router

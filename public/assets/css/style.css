@@ -12,8 +12,15 @@
 :root {
   --primaryColor: #1d284b;
 }
+
+.pointer-none {
+  pointer-events: none;
+}
+.bg-my-primary {
+  background-color: var(--primaryColor) !important;
+}
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   color: #444444;
 }
 
@@ -325,8 +332,9 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
+  margin-top: 50px;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 50px);
   background-color: rgba(22, 30, 56, 0.8);
   overflow: hidden;
   position: relative;
@@ -458,7 +466,8 @@ h6 {
 
 @media (max-width: 992px) {
   #hero {
-    height: 40vh;
+    margin-top: 50px;
+    height: calc(40vh - 50px);
   }
 
   #hero .carousel-container {

@@ -1,4 +1,13 @@
 <script setup>
+import { onMounted } from 'vue'
+onMounted(() => {
+  const myScript = document.querySelector('.my-script')
+  myScript.innerHTML = ''
+  let recaptchaScript = document.createElement('script')
+  recaptchaScript.setAttribute('src', '/assets/js/main.js')
+  recaptchaScript.setAttribute('defer', true)
+  myScript.appendChild(recaptchaScript)
+})
 const tags = ['palestine', 'justice', 'holiday']
 const result = [
   { tag: 'palestine', url: '4.jpg', title: 'judul', desc: 'deskripsi' },
@@ -52,8 +61,12 @@ const result = [
             :key="i"
             :class="['col-lg-3 col-md-4 col-6 gallery-item', 'filter-' + data.tag]"
           >
-            <div class="gallery-wrap">
-              <img :src="'/assets/hero-content/' + data.url" class="img-fluid" :alt="data.title" />
+            <div class="gallery-wrap shadow">
+              <img
+                :src="'/assets/hero-content/' + data.url"
+                class="img-fluid img-thumbnail"
+                :alt="data.title"
+              />
               <div class="gallery-info">
                 <h4>{{ data.title }}</h4>
                 <p>{{ data.desc }}</p>

@@ -66,11 +66,11 @@ const dataSorted = data.sort(sortByDate)
             v-for="(d, i) in dataSorted"
             :key="i"
           >
-            <div class="card">
+            <div class="card shadow">
               <div class="card-img">
-                <img :src="'/assets/hero-content/' + d.img" alt="..." />
+                <img class="img-thumbnail" :src="'/assets/hero-content/' + d.img" alt="..." />
               </div>
-              <div class="card-body">
+              <div class="card-body shadow-none">
                 <h5 class="card-title" v-text="d.judul"></h5>
                 <p class="fst-italic text-center" v-text="d.tgl"></p>
                 <p class="card-text" v-text="d.deskripsi"></p>
