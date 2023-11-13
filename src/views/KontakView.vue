@@ -1,3 +1,8 @@
+<script setup>
+const toggleLoading = () => {
+  document.querySelector('.loading').classList.toggle('close')
+}
+</script>
 <template>
   <main id="main">
     <section id="breadcrumbs" class="breadcrumbs">
@@ -5,7 +10,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Kontak Kami</h2>
           <ol>
-            <li><router-link to="/">Home</router-link></li>
+            <li><router-link @click="toggleLoading" to="/">Home</router-link></li>
             <li>Kontak Kami</li>
           </ol>
         </div>
