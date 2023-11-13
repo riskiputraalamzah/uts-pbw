@@ -5,6 +5,10 @@ const copy = () => {
 
   return nowDate == date ? nowDate : date + '-' + nowDate
 }
+
+const scrollTop = () => {
+  return window.scrollTo(0, 0)
+}
 </script>
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -56,9 +60,9 @@ const copy = () => {
         Develop by <a href="https://s.id/alamzah">Putra 😄✌️</a>
       </div>
     </div>
-    <a href="#" class="back-to-top pointer-none d-flex align-items-center justify-content-center"
+    <span @click="scrollTop" class="back-to-top d-flex align-items-center justify-content-center"
       ><i class="bi bi-arrow-up-short"></i
-    ></a>
+    ></span>
   </footer>
 </template>
 
