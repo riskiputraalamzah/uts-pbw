@@ -1,4 +1,15 @@
 <script setup>
+let currentValue = 0
+const delay = () => {
+  let result = 100
+  if (currentValue >= 3) {
+    currentValue = 0
+  }
+  result = result * currentValue
+  currentValue++
+  console.log(result)
+  return result
+}
 const data = [
   {
     tgl: '2022-09-26',
@@ -61,7 +72,7 @@ const toggleLoading = () => {
     <!-- End Breadcrumbs -->
 
     <!-- ======= Event List Section ======= -->
-    <section id="event-list" class="event-list">
+    <section id="event-list" class="event-list overflow-hidden">
       <div class="container">
         <div class="row justify-content-center">
           <div
@@ -69,7 +80,7 @@ const toggleLoading = () => {
             v-for="(d, i) in dataSorted"
             :key="i"
           >
-            <div class="card shadow">
+            <div class="card shadow" data-aos="fade-right" :data-aos-delay="delay()">
               <div class="card-img">
                 <img class="img-thumbnail" :src="'/assets/hero-content/' + d.img" alt="..." />
               </div>

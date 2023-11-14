@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import AOS from 'aos'
+import 'aos/dist/aos.css' // You can also use <link> for styles
 
 const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
@@ -42,17 +44,6 @@ const router = createRouter({
 const toggleLoading = () => {
   document.querySelector('.loading').classList.toggle('close')
 }
-// router.beforeResolve((to, from, next) => {
-//   // to and from are both route objects. must call `next`.
-//   document.querySelector('.my-script').innerHTML = ''
-//   next()
-// })
-// router.beforeEach((to, from, next) => {
-//   // toggleLoading()
-//   // to and from are both route objects. must call `next`.
-//   document.querySelector('.my-script').innerHTML = ''
-//   next()
-// })
 
 const append = (links) => {
   links.forEach((link) => {
@@ -62,29 +53,12 @@ const append = (links) => {
   })
 }
 router.afterEach((to, from) => {
-  // const myScript = document.querySelector('.my-script')
-
-  // const links = ['assets/js/main.js']
-
-  // myScript.innerHTML = ''
-
-  // append(links)
-
-  // new Promise((resolve, reject) => {
-  //   let script = document.createElement('script')
-  //   script.onload = () => {
-  //    resolve(import(someComponent))
-  //   }
-  //   script.async = true
-  //   script.src = 'https://maps.googleapis.com/maps/api/js?key=APIKEY&libraries=places'
-  //   document.head.appendChild(script)
-  //  })
-
-  // setTimeout(() => {
-  // }, 1000)
-
   setTimeout(() => {
     toggleLoading()
+    AOS.init({
+      offset: 100,
+      once: true
+    })
   }, 1000)
 })
 export default router

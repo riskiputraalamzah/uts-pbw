@@ -20,10 +20,10 @@ const toggleLoading = () => {
     <!-- End Breadcrumbs -->
 
     <!-- ======= Story Intro Section ======= -->
-    <section id="story-intro" class="story-intro">
+    <section id="story-intro" class="story-intro overflow-hidden">
       <div class="container">
         <div class="row align-items-center">
-          <div class="section-title">
+          <div class="section-title" data-aos="fade-up">
             <h2>Sambutan</h2>
             <p>
               Budi Setiawan, Ketua Lembaga Resiliensi Bencana (MDMC) Pimpinan Pusat Muhammadiyah
@@ -65,11 +65,16 @@ const toggleLoading = () => {
         </div>
       </div>
     </section>
-    <section>
+    <section class="overflow-hidden">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 col-md-8 col-10 text-center">
-            <img src="/assets/img/og.png" alt="" class="img-fluid rounded mb-5" />
+            <img
+              src="/assets/img/og.png"
+              alt=""
+              class="img-fluid rounded mb-5"
+              data-aos="zoom-in-up"
+            />
           </div>
 
           <div class="col-12">
@@ -105,15 +110,15 @@ const toggleLoading = () => {
         d="M0,32L60,53.3C120,75,240,117,360,138.7C480,160,600,160,720,160C840,160,960,160,1080,144C1200,128,1320,96,1380,80L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
       ></path>
     </svg>
-    <section style="margin: -5px 0" class="bg-my-primary text-light">
+    <section style="margin: -5px 0" class="bg-my-primary text-light overflow-hidden">
       <div class="container">
         <div class="row mt-5">
           <div class="col-md-6">
-            <div class="section-title">
+            <div class="section-title" data-aos="zoom-out-down">
               <h2>visi</h2>
             </div>
 
-            <p>
+            <p data-aos="fade-up" data-aos-delay="200">
               Berkembangnya fungsi dan sistem penanggulangan bencana yang unggul dan berbasis
               Penolong Kesengsaraan Oemoem (PKO) sehingga mampu meningkatkan kualitas dan kemajuan
               hidup masyarakat yang sadar dan tangguh terhadap bencana serta mampu memulihkan korban
@@ -121,10 +126,10 @@ const toggleLoading = () => {
             </p>
           </div>
           <div class="col-md-6">
-            <div class="section-title">
+            <div class="section-title" data-aos="zoom-out-down">
               <h2>misi</h2>
             </div>
-            <ol type="1">
+            <ol type="1" data-aos="fade-up" data-aos-delay="200">
               <li>Meningkatkan dan Mengoptimalkan Sistem Penanggulangan Bencana di Muhammadiyah</li>
               <li>Mengembangkan Kesadaran Bencana di Lingkungan Muhammadiyah</li>
               <li>Memperkuat Jaringan dan Partisipasi Masyarakat dalam Penanggulangan Bencana.</li>
@@ -143,7 +148,7 @@ const toggleLoading = () => {
     <section>
       <div class="container">
         <div class="row align-items-center">
-          <div class="section-title">
+          <div class="section-title" data-aos="fade-up">
             <h2>program kerja</h2>
             <p>Berikut program kerja dari MDMC</p>
           </div>

@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
+
 const toggleLoading = () => {
   document.querySelector('.loading').classList.toggle('close')
 }
@@ -85,11 +86,11 @@ onMounted(() => {
     <main id="main">
       <!-- ======= My & Family Section ======= -->
 
-      <section id="about" class="about">
+      <section id="about" class="about overflow-hidden">
         <div class="container">
           <div class="section-title">
-            <h2>Sambutan</h2>
-            <p>
+            <h2 data-aos="fade-up">Sambutan</h2>
+            <p data-aos="fade-up">
               Budi Setiawan, Ketua Lembaga Resiliensi Bencana (MDMC) Pimpinan Pusat Muhammadiyah
               2022 – 2027
             </p>
@@ -97,10 +98,15 @@ onMounted(() => {
 
           <div class="row content align-items-center">
             <div class="col-lg-6">
-              <img src="/assets/img/sambutan.jpeg" class="img-fluid img-thumbnail" alt="" />
+              <img
+                data-aos="fade-right"
+                src="/assets/img/sambutan.jpeg"
+                class="img-fluid img-thumbnail"
+                alt=""
+              />
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0">
-              <p>
+              <p data-aos="fade-left">
                 Lembaga Penanggulangan Bencana Pimpinan Pusat Muhammadiyah mengalami perubahan nama
                 dengan tanpa mengurangi makna, visi dan misi lembaga yakni menjadi Lembaga
                 Resiliensi Bencana Pimpinan Pusat Muhammadiyah mulai dari tahun 2022 serta memiliki
@@ -110,7 +116,11 @@ onMounted(() => {
               </p>
 
               <!-- <a href="our-story.html" class="btn-learn-more">Learn More</a> -->
-              <router-link to="/profil" @click="toggleLoading" class="btn-learn-more"
+              <router-link
+                data-aos="fade-up"
+                to="/profil"
+                @click="toggleLoading"
+                class="btn-learn-more"
                 >Lihat Selengkapnya</router-link
               >
             </div>
@@ -119,13 +129,20 @@ onMounted(() => {
       </section>
       <!-- End My & Family Section -->
 
-      <section>
+      <section class="overflow-hidden">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
               <div class="my-border">
-                <div class="display-1 text-center fw-bold">Apa itu MDMC ❓</div>
-                <img src="/assets/img/og.png" alt="" class="img-fluid rounded mt-5" />
+                <div class="display-1 text-center fw-bold" data-aos="zoom-in-up">
+                  Apa itu MDMC ❓
+                </div>
+                <img
+                  data-aos="zoom-in"
+                  src="/assets/img/og.png"
+                  alt=""
+                  class="img-fluid rounded mt-5"
+                />
                 <p class="mt-5">
                   Muhammadiyah Disaster Management Center (MDMC) adalah sebutan dalam bahasa inggris
                   dari Lembaga Penanggulangan Bencana Muhammadiyah yang merupakan salah satu unsur
@@ -153,10 +170,14 @@ onMounted(() => {
           d="M0,96L60,128C120,160,240,224,360,208C480,192,600,96,720,80C840,64,960,128,1080,176C1200,224,1320,256,1380,272L1440,288L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
         ></path>
       </svg>
-      <section id="features" style="margin: -10px 0" class="features bg-my-primary text-light">
+      <section
+        id="features"
+        style="margin: -10px 0"
+        class="features bg-my-primary text-light overflow-hidden"
+      >
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 icon-box">
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
               <div class="icon"><i class="bi bi-truck"></i></div>
               <h4 class="title">
                 <a href="" class="pointer-none text-light">Bantuan Kemanusian</a>
@@ -166,7 +187,7 @@ onMounted(() => {
                 Response sesuai prinsip - prinsip kemanusiaan
               </p>
             </div>
-            <div class="col-lg-4 col-md-6 icon-box">
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
               <div class="icon"><i class="bi bi-person-hearts"></i></div>
               <h4 class="title"><a href="" class="pointer-none text-light">Mitigasi Bencana</a></h4>
               <p class="description">
@@ -174,7 +195,7 @@ onMounted(() => {
                 dan pemerintah menciptakan masyarakat tangguh.
               </p>
             </div>
-            <div class="col-lg-4 col-md-6 icon-box">
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class="bi bi-bookmark-heart"></i></div>
               <h4 class="title"><a href="" class="pointer-none text-light">Penguatan Sistem</a></h4>
               <p class="description">
@@ -198,7 +219,7 @@ onMounted(() => {
 
       <section id="recent-photos" class="recent-photos">
         <div class="container">
-          <div class="section-title">
+          <div class="section-title" data-aos="zoom-in-up">
             <h2>Dokumentasi Kegiatan</h2>
             <p>Berikut beberapa dokumentasi selama kegiatan berlangsung</p>
           </div>

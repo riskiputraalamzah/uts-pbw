@@ -1,5 +1,18 @@
 <script setup>
 import { onMounted } from 'vue'
+
+let currentValue = 0
+const delay = () => {
+  let result = 100
+  if (currentValue >= 4) {
+    currentValue = 0
+  }
+  result = result * currentValue
+  currentValue++
+  console.log(result)
+  return result
+}
+
 onMounted(() => {
   const myScript = document.querySelector('.my-script')
   myScript.innerHTML = ''
@@ -42,7 +55,7 @@ const toggleLoading = () => {
     <!-- End Breadcrumbs -->
 
     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery overflow-hidden">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
@@ -65,7 +78,7 @@ const toggleLoading = () => {
             :key="i"
             :class="['col-lg-3 col-md-4 col-6 gallery-item', 'filter-' + data.tag]"
           >
-            <div class="gallery-wrap shadow">
+            <div class="gallery-wrap shadow" data-aos="fade-up" :data-aos-delay="delay()">
               <img
                 :src="'/assets/hero-content/' + data.url"
                 class="img-fluid img-thumbnail"
