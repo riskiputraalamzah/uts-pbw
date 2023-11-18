@@ -10,6 +10,11 @@ import Footer from './components/Footer.vue'
     <div class="loading close">
       <img src="/assets/img/logo-web.png" alt="" />
     </div>
+
+    <a href="https://lazismu.org" target="_blank" class="btn btn-warning rounded donation">
+      <i class="bi bi-coin"></i>
+      <span>Donation Now</span>
+    </a>
     <HeaderVue />
     <div>
       <router-view v-slot="{ Component }">
@@ -52,5 +57,29 @@ import Footer from './components/Footer.vue'
   transition: all 0.5s ease;
   opacity: 0;
   z-index: -9999;
+}
+
+.donation {
+  position: fixed;
+  bottom: 15px;
+  left: 10px;
+  z-index: 9998;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.donation i {
+  font-size: 25px;
+}
+.donation span {
+  font-size: 14px;
+}
+@media (max-width: 569px) {
+  .donation i {
+    font-size: 16px;
+  }
+  .donation span {
+    font-size: 10px;
+  }
 }
 </style>
