@@ -44,16 +44,18 @@ const router = createRouter({
 const toggleLoading = () => {
   document.querySelector('.loading').classList.toggle('close')
 }
-
-const append = (links) => {
-  links.forEach((link) => {
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.setAttribute('src', link)
-    document.querySelector('.my-script').appendChild(recaptchaScript)
-  })
+const toggleScrollBody = () => {
+  document.body.classList.toggle('overflow-hidden')
 }
+router.beforeEach((to, from, next) => {
+  toggleScrollBody()
+  toggleLoading()
+  next()
+  // to and from are both route objects. must call `next`.
+})
 router.afterEach((to, from) => {
   setTimeout(() => {
+    toggleScrollBody()
     toggleLoading()
     AOS.init({
       offset: 100,

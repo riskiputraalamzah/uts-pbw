@@ -1,10 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
 
-const toggleLoading = () => {
-  document.querySelector('.loading').classList.toggle('close')
-}
-
 onMounted(() => {
   const myScript = document.querySelector('.my-script')
   myScript.innerHTML = ''
@@ -116,11 +112,7 @@ onMounted(() => {
               </p>
 
               <!-- <a href="our-story.html" class="btn-learn-more">Learn More</a> -->
-              <router-link
-                data-aos="fade-up"
-                to="/profil"
-                @click="toggleLoading"
-                class="btn-learn-more"
+              <router-link data-aos="fade-up" to="/profil" class="btn-learn-more"
                 >Lihat Selengkapnya</router-link
               >
             </div>
@@ -153,7 +145,7 @@ onMounted(() => {
                   nomor 153/KEP/I.0/D/2023 tentang Pengangkatan Pimpinan dan Anggota Lembaga
                   Resiliensi Bencana Pimpinan Pusat Muhammadiyah Periode 2022-2027.
                 </p>
-                <router-link to="/profil" @click="toggleLoading" class="btn btn-outline-primary"
+                <router-link to="/profil" class="btn btn-outline-primary"
                   >Baca Selengkapnya</router-link
                 >
               </div>

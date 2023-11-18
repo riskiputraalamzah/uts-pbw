@@ -1,8 +1,3 @@
-<script setup>
-const toggleLoading = () => {
-  document.querySelector('.loading').classList.toggle('close')
-}
-</script>
 <template>
   <main id="main">
     <!-- ======= Breadcrumbs ======= -->
@@ -11,7 +6,7 @@ const toggleLoading = () => {
         <div class="d-flex justify-content-between align-items-center">
           <h2>Profil</h2>
           <ol>
-            <li><router-link @click="toggleLoading" to="/">Home</router-link></li>
+            <li><router-link to="/">Home</router-link></li>
             <li>Profil</li>
           </ol>
         </div>

@@ -33,9 +33,6 @@ const result = [
   { tag: 'justice', url: '8.jpg', title: 'judul', desc: 'deskripsi' },
   { tag: 'justice', url: '9.jpg', title: 'judul', desc: 'deskripsi' }
 ]
-const toggleLoading = () => {
-  document.querySelector('.loading').classList.toggle('close')
-}
 </script>
 
 <template>
@@ -46,7 +43,7 @@ const toggleLoading = () => {
         <div class="d-flex justify-content-between align-items-center">
           <h2>Gallery</h2>
           <ol>
-            <li><router-link @click="toggleLoading" to="/">Home</router-link></li>
+            <li><router-link to="/">Home</router-link></li>
             <li>Gallery</li>
           </ol>
         </div>

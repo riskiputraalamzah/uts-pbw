@@ -51,9 +51,6 @@ function sortByDate(a, b) {
   return 0
 }
 const dataSorted = data.sort(sortByDate)
-const toggleLoading = () => {
-  document.querySelector('.loading').classList.toggle('close')
-}
 </script>
 <template>
   <main id="main">
@@ -63,7 +60,7 @@ const toggleLoading = () => {
         <div class="d-flex justify-content-between align-items-center">
           <h2>Portal Berita</h2>
           <ol>
-            <li><router-link @click="toggleLoading" to="/">Home</router-link></li>
+            <li><router-link to="/">Home</router-link></li>
             <li>Berita</li>
           </ol>
         </div>

@@ -7,7 +7,7 @@ import Footer from './components/Footer.vue'
 
 <template>
   <div>
-    <div class="loading">
+    <div class="loading close">
       <img src="/assets/img/logo-web.png" alt="" />
     </div>
     <HeaderVue />
