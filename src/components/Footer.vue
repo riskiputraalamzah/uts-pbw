@@ -57,7 +57,7 @@ const scrollTop = () => {
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/family-multipurpose-html-bootstrap-template-free/ -->
-        Develop by <a href="https://s.id/alamzah">Putra 😄✌️</a>
+        Develop by <a href="https://s.id/alamzah">Putra</a>
       </div>
     </div>
     <span @click="scrollTop" class="back-to-top d-flex align-items-center justify-content-center"
