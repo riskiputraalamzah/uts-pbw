@@ -65,16 +65,35 @@ import Footer from './components/Footer.vue'
   left: 10px;
   z-index: 9998;
   display: flex;
-  gap: 5px;
+  width: 56px;
+  height: 56px;
+
+  transition: width 0.2s ease-in-out;
+
+  overflow: hidden;
   align-items: center;
 }
 .donation i {
-  font-size: 25px;
+  font-size: 30px;
 }
 .donation span {
   font-size: 14px;
+  /* width: 0px; */
+  text-wrap: nowrap;
+  margin-left: 5px;
+
+  overflow: hidden;
 }
+.donation:hover {
+  width: 160px;
+}
+
 @media (max-width: 569px) {
+  .donation,
+  .donation:hover {
+    width: fit-content;
+    height: fit-content;
+  }
   .donation i {
     font-size: 16px;
   }

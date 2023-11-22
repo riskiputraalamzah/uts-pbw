@@ -467,11 +467,21 @@ h6 {
 @media (max-width: 992px) {
   #hero {
     margin-top: 50px;
-    height: calc(40vh - 50px);
+    height: calc(80vh - 50px);
   }
 
   #hero .carousel-container {
     top: 8px;
+  }
+}
+@media (max-width: 768px) {
+  #hero {
+    height: calc(60vh - 50px);
+  }
+}
+@media (max-width: 569px) {
+  #hero {
+    height: calc(40vh - 50px);
   }
 }
 
