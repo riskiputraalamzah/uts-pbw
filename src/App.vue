@@ -63,7 +63,7 @@ import Footer from './components/Footer.vue'
   position: fixed;
   bottom: 15px;
   left: 10px;
-  z-index: 9998;
+  z-index: 99;
   display: flex;
   width: 56px;
   height: 56px;
