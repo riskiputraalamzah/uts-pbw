@@ -1,0 +1,5 @@
+package project.pbw;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}
