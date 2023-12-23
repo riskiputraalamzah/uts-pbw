@@ -47,10 +47,43 @@ const toggle = (evt) => {
           <li @click="toggle($event.target)">
             <router-link active-class="active disabled" to="/kontak-kami">Kontak</router-link>
           </li>
+
+          <li class="d-lg-none d-flex text-light ps-3">
+            <router-link
+              @click="toggle($event.target)"
+              class="btn btn-success text-light py-2 px-4 me-2"
+              to="/login"
+              >Login</router-link
+            >
+            <router-link
+              @click="toggle($event.target)"
+              class="btn btn-outline-success py-2 px-4"
+              to="/register"
+              >Daftar</router-link
+            >
+          </li>
         </ul>
+
         <i class="bi bi-list mobile-nav-toggle" @click="toggle($event.target)"></i>
       </nav>
       <!-- .navbar -->
+
+      <!-- desktop views -->
+      <div class="d-lg-block d-none">
+        <router-link
+          @click="toggle($event.target)"
+          class="btn btn-success py-2 px-4 me-2"
+          to="/login"
+          >Login</router-link
+        >
+        <router-link
+          @click="toggle($event.target)"
+          class="btn btn-outline-light py-2 px-4"
+          to="/register"
+          >Daftar</router-link
+        >
+      </div>
+      <!-- end -->
     </div>
   </header>
 </template>

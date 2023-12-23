@@ -37,6 +37,16 @@ const router = createRouter({
       path: '/galeri',
       name: 'galeri',
       component: () => import('../views/GaleriView.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/Auth/LoginView.vue')
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('../views/Auth/RegisterView.vue')
     }
   ]
 })
