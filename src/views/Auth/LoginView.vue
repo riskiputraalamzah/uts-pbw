@@ -45,7 +45,7 @@ const togglePassword = () => (toggle.value = !toggle.value)
                 </div>
 
                 <div
-                  class="d-flex align-items-center justify-content-md-between justify-content-center gap-3 flex-wrap"
+                  class="d-flex align-items-center justify-content-between gap-3 flex-md-row flex-column"
                 >
                   <button
                     @click="$router.push('/dashboard')"
