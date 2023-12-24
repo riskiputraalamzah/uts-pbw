@@ -53,9 +53,9 @@ const togglePassword = () => (toggle.value = !toggle.value)
                     autocomplete="cc-number"
                   />
                 </div>
-                <div class="mb-4 form-check" @click="togglePassword">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                  <label class="form-check-label" for="exampleCheck1">
+                <div class="mb-4 form-check">
+                  <input @click="togglePassword"  type="checkbox" class="form-check-input" id="exampleCheck1" />
+                  <label @click="togglePassword" class="form-check-label" for="exampleCheck1">
                     <small> {{ toggle ? 'Sembunyikan' : 'Tampilkan' }} Password </small>
                   </label>
                 </div>
