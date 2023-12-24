@@ -54,9 +54,14 @@ const togglePassword = () => (toggle.value = !toggle.value)
                   />
                 </div>
                 <div class="mb-4 form-check">
-                  <input @click="togglePassword"  type="checkbox" class="form-check-input" id="exampleCheck1" />
+                  <input
+                    @click="togglePassword"
+                    type="checkbox"
+                    class="form-check-input"
+                    id="exampleCheck1"
+                  />
                   <label class="form-check-label" for="exampleCheck1">
-                    <small @click="togglePassword"> {{ toggle ? 'Sembunyikan' : 'Tampilkan' }} Password </small>
+                    <small> {{ toggle ? 'Sembunyikan' : 'Tampilkan' }} Password </small>
                   </label>
                 </div>
                 <div
