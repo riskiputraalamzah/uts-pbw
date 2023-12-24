@@ -16,6 +16,10 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/:pathMatch(.*)*',
+      redirect: { name: 'home' }
+    },
+    {
       path: '/profil',
       name: 'profil',
       // route level code-splitting
@@ -47,6 +51,11 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: () => import('../views/Auth/RegisterView.vue')
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('../views/Admin/DashboardView.vue')
     }
   ]
 })

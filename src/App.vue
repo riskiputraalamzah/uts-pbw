@@ -3,6 +3,8 @@ import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import HeaderVue from './components/Header.vue'
 import Footer from './components/Footer.vue'
+
+const viewAdmin = false
 </script>
 
 <template>
@@ -10,20 +12,28 @@ import Footer from './components/Footer.vue'
     <div class="loading close">
       <img src="/assets/img/logo-web.png" alt="" />
     </div>
-
-    <a href="https://lazismu.org" target="_blank" class="btn btn-warning rounded donation">
-      <i class="bi bi-coin"></i>
-      <span>Donation Now</span>
-    </a>
-    <HeaderVue />
-    <div>
+    <div v-if="viewAdmin">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </div>
-    <Footer />
+    <div v-else>
+      <a href="https://lazismu.org" target="_blank" class="btn btn-warning rounded donation">
+        <i class="bi bi-coin"></i>
+        <span>Donation Now</span>
+      </a>
+      <HeaderVue />
+      <div>
+        <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
+      </div>
+      <Footer />
+    </div>
   </div>
 </template>
 

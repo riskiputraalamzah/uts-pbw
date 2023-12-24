@@ -44,8 +44,10 @@ const togglePassword = () => (toggle.value = !toggle.value)
                   ></i>
                 </div>
 
-                <div class="d-flex align-items-center justify-content-between">
-                  <button type="submit" class="btn btn-primary py-2 px-5">Login</button>
+                <div
+                  class="d-flex align-items-center justify-content-md-between justify-content-center gap-3 flex-wrap"
+                >
+                  <button type="button" class="btn btn-primary py-2 px-5">Login</button>
                   <small>Belum punya Akun? <router-link to="/register">Daftar</router-link></small>
                 </div>
               </form>
