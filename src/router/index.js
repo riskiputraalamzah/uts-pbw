@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../views/Default/HomeView.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css' // You can also use <link> for styles
 
@@ -25,22 +25,22 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ProfileView.vue')
+      component: () => import('../views/Default/ProfileView.vue')
     },
     {
       path: '/kontak-kami',
       name: 'kontak',
-      component: () => import('../views/KontakView.vue')
+      component: () => import('../views/Default/KontakView.vue')
     },
     {
       path: '/berita',
       name: 'berita',
-      component: () => import('../views/BeritaView.vue')
+      component: () => import('../views/Default/BeritaView.vue')
     },
     {
       path: '/galeri',
       name: 'galeri',
-      component: () => import('../views/GaleriView.vue')
+      component: () => import('../views/Default/GaleriView.vue')
     },
     {
       path: '/login',
@@ -55,7 +55,45 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import('../views/Admin/DashboardView.vue')
+      component: () => import('../views/Admin/DashboardView.vue'),
+      meta: {
+        admin: true
+      }
+    },
+    {
+      path: '/manage',
+      redirect: { name: 'dashboard' },
+      meta: {
+        admin: true,
+        parent: true
+      },
+      children: [
+        {
+          path: 'home',
+          name: 'manage_home',
+          component: () => import('../views/Admin/MenuHome/Main.vue')
+        },
+        {
+          path: 'profil',
+          name: 'manage_profil',
+          component: () => import('../views/Admin/MenuProfil/Main.vue')
+        },
+        {
+          path: 'berita',
+          name: 'manage_berita',
+          component: () => import('../views/Admin/MenuBerita/Main.vue')
+        },
+        {
+          path: 'galeri',
+          name: 'manage_galeri',
+          component: () => import('../views/Admin/MenuGaleri/Main.vue')
+        },
+        {
+          path: 'kontak-kami',
+          name: 'manage_kontak',
+          component: () => import('../views/Admin/MenuKontak/Main.vue')
+        }
+      ]
     }
   ]
 })

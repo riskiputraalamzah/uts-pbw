@@ -1,6 +1,6 @@
 <script setup>
-import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 const location = useRoute()
 
 const disabled = computed(() => location.path == '/')
@@ -51,12 +51,14 @@ const toggle = (evt) => {
           <li class="d-lg-none d-flex text-light ps-3">
             <router-link
               @click="toggle($event.target)"
+              active-class="active disabled"
               class="btn btn-success text-light py-2 px-4 me-2"
               to="/login"
               >Login</router-link
             >
             <router-link
               @click="toggle($event.target)"
+              active-class="active disabled"
               class="btn btn-outline-success py-2 px-4"
               to="/register"
               >Daftar</router-link
@@ -72,12 +74,14 @@ const toggle = (evt) => {
       <div class="d-lg-block d-none">
         <router-link
           @click="toggle($event.target)"
+          active-class="active disabled"
           class="btn btn-success py-2 px-4 me-2"
           to="/login"
           >Login</router-link
         >
         <router-link
           @click="toggle($event.target)"
+          active-class="active disabled"
           class="btn btn-outline-light py-2 px-4"
           to="/register"
           >Daftar</router-link

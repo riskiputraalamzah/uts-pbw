@@ -47,7 +47,13 @@ const togglePassword = () => (toggle.value = !toggle.value)
                 <div
                   class="d-flex align-items-center justify-content-md-between justify-content-center gap-3 flex-wrap"
                 >
-                  <button type="button" class="btn btn-primary py-2 px-5">Login</button>
+                  <button
+                    @click="$router.push('/dashboard')"
+                    type="button"
+                    class="btn btn-primary py-2 px-5"
+                  >
+                    Login
+                  </button>
                   <small>Belum punya Akun? <router-link to="/register">Daftar</router-link></small>
                 </div>
               </form>
