@@ -1,9 +1,27 @@
 <script setup>
 import { ref } from 'vue'
+import { globalStore } from '@/stores/global'
+const store = globalStore()
+
 const password = ref(null)
 const toggle = ref(false)
 
 const togglePassword = () => (toggle.value = !toggle.value)
+
+const handleLogin = () => {
+  store.toggleLoadingAction()
+
+  setTimeout(() => {
+    let data = {
+      status: 'danger',
+      showing: true,
+      judul: 'Gagal Login',
+      data: ['Data tidak ditemukan']
+    }
+    store.myAlert(data)
+    store.toggleLoadingAction()
+  }, 3000)
+}
 </script>
 <template>
   <main id="main">
@@ -47,11 +65,7 @@ const togglePassword = () => (toggle.value = !toggle.value)
                 <div
                   class="d-flex align-items-center justify-content-between gap-3 flex-md-row flex-column"
                 >
-                  <button
-                    @click="$router.push('/dashboard')"
-                    type="button"
-                    class="btn btn-primary py-2 px-5"
-                  >
+                  <button @click="handleLogin" type="button" class="btn btn-primary py-2 px-5">
                     Login
                   </button>
                   <small>Belum punya Akun? <router-link to="/register">Daftar</router-link></small>

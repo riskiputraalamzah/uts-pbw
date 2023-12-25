@@ -1,6 +1,12 @@
 <script setup>
+import { globalStore } from '@/stores/global'
+
 import LayoutAdmin from './views/Admin/LayoutAdmin.vue'
 import LayoutDefault from './views/Default/LayoutDefault.vue'
+import Alert from './components/Alert.vue'
+import LoadingAction from './components/LoadingAction.vue'
+
+const store = globalStore()
 </script>
 
 <template>
@@ -8,6 +14,14 @@ import LayoutDefault from './views/Default/LayoutDefault.vue'
     <div class="loading close">
       <img src="/assets/img/logo-web.png" alt="" />
     </div>
+    <Alert
+      :showing="store.alert.showing"
+      :status="store.alert.status"
+      :judul="store.alert.judul"
+      :data="store.alert.data"
+    />
+
+    <LoadingAction />
 
     <LayoutAdmin v-if="$route.meta.admin" />
 
