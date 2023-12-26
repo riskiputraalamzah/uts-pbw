@@ -30,9 +30,9 @@ const props = defineProps({
       ]"
       role="alert"
     >
-      <h4 class="alert-heading" v-text="props.judul"></h4>
+      <h4 class="alert-heading m-0" v-text="props.judul"></h4>
 
-      <p v-for="(d, i) in props.data">
+      <p v-for="(d, i) in props.data" class="mb-0 mt-1" :key="i">
         {{ d }}
       </p>
       <button type="button" class="btn-close" @click="store.closeAlert()"></button>

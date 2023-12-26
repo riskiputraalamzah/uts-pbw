@@ -1,3 +1,12 @@
+<script setup>
+import { computed } from 'vue'
+import { globalStore } from '../../stores/global'
+const store = globalStore()
+
+const isLogin = computed(() => store.isLogin)
+
+console.log(isLogin)
+</script>
 <template>
   <main id="main">
     <!-- ======= Breadcrumbs ======= -->

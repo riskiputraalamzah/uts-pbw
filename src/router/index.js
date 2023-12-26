@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { globalStore } from '../stores/global'
 import HomeView from '../views/Default/HomeView.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css' // You can also use <link> for styles
@@ -15,6 +16,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+
     {
       path: '/:pathMatch(.*)*',
       redirect: { name: 'home' }
@@ -45,19 +47,38 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Auth/LoginView.vue')
+      component: () => import('../views/Auth/LoginView.vue'),
+      beforeEnter: (to, from, next) => {
+        if (localStorage.getItem('token')) {
+          // sudah pernah login
+          toggleScrollBody()
+          toggleLoading()
+          return next('/')
+        }
+        next()
+      }
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/Auth/RegisterView.vue')
+      component: () => import('../views/Auth/RegisterView.vue'),
+      beforeEnter: (to, from, next) => {
+        if (localStorage.getItem('token')) {
+          // sudah pernah login
+          toggleScrollBody()
+          toggleLoading()
+          return next('/')
+        }
+        next()
+      }
     },
     {
       path: '/dashboard',
       name: 'dashboard',
       component: () => import('../views/Admin/DashboardView.vue'),
       meta: {
-        admin: true
+        admin: true,
+        requiresAuth: true
       }
     },
     {
@@ -65,7 +86,8 @@ const router = createRouter({
       redirect: { name: 'dashboard' },
       meta: {
         admin: true,
-        parent: true
+        parent: true,
+        requiresAuth: true
       },
       children: [
         {
@@ -107,7 +129,26 @@ const toggleScrollBody = () => {
 router.beforeEach((to, from, next) => {
   toggleScrollBody()
   toggleLoading()
-  next()
+  if (to.meta.requiresAuth) {
+    const token = localStorage.getItem('token')
+    if (token) {
+      next()
+    } else {
+      const store = globalStore()
+
+      toggleScrollBody()
+      toggleLoading()
+
+      next('/login')
+
+      setTimeout(() => {
+        store.myAlert(true, 'danger', 'Failed', ['Anda harus login terlebih dahulu'])
+      }, 1000)
+    }
+  } else {
+    next()
+  }
+
   // to and from are both route objects. must call `next`.
 })
 router.afterEach((to, from) => {

@@ -1,26 +1,91 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { globalStore } from '@/stores/global'
+import axios from 'axios'
+
+const router = useRouter()
 const store = globalStore()
 
-const password = ref(null)
+const username = ref('')
+const password = ref('')
 const toggle = ref(false)
+
+const usernameElement = ref(null)
 
 const togglePassword = () => (toggle.value = !toggle.value)
 
-const handleLogin = () => {
+const checkInput = () => {
+  let error = []
+  if (username.value == '') {
+    error.push('username harus di isi')
+  }
+  if (password.value == '') {
+    error.push('password harus di isi')
+  }
+  return error
+}
+
+let disabled = false
+
+const handleLogin = async () => {
+  if (disabled) {
+    return true
+  }
+  disabled = true
   store.toggleLoadingAction()
 
-  setTimeout(() => {
-    let data = {
-      status: 'danger',
-      showing: true,
-      judul: 'Gagal Login',
-      data: ['Data tidak ditemukan']
-    }
-    store.myAlert(data)
+  const check = checkInput()
+
+  if (check.length > 0) {
+    store.myAlert(true, 'danger', 'Failed', check)
     store.toggleLoadingAction()
-  }, 3000)
+    return (disabled = false)
+  }
+
+  await axios.get('/sanctum/csrf-cookie')
+
+  const result = await axios
+    .post('/api/login', {
+      username: username.value,
+      password: password.value
+    })
+    .then((response) => response)
+    .catch((error) => error)
+
+  console.log(result)
+
+  const { status, statusText } = result.request
+
+  if (status == 200) {
+    // berhasil
+    const { token, user } = result.data.data
+
+    localStorage.setItem('token', token)
+    localStorage.setItem('isLogin', 'true')
+    localStorage.setItem('user', JSON.stringify(user))
+
+    store.userLogin(user)
+
+    store.toggleLoadingAction()
+
+    router.push('/dashboard')
+    setTimeout(() => {
+      store.myAlert(true, 'success', 'Login', ['Anda berhasil Login'])
+    }, 1200)
+    return true
+  }
+
+  // error
+  username.value = ''
+  password.value = ''
+
+  usernameElement.value.focus()
+
+  const { data } = result.response
+  store.myAlert(true, 'danger', statusText, [data.message])
+  store.toggleLoadingAction()
+  disabled = false
 }
 </script>
 <template>
@@ -42,18 +107,25 @@ const handleLogin = () => {
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 col-11">
             <div class="card shadow card-body">
-              <form>
+              <form @submit.prevent="handleLogin">
                 <div class="mb-4">
                   <label for="username" class="form-label">Username</label>
-                  <input type="email" class="form-control" id="username" autocomplete="off" />
+                  <input
+                    ref="usernameElement"
+                    type="text"
+                    v-model="username"
+                    class="form-control"
+                    id="username"
+                    autocomplete="off"
+                  />
                 </div>
                 <div class="mb-4" id="input-password">
                   <label for="password" class="form-label">Password</label>
                   <input
-                    ref="password"
                     :type="toggle ? 'text' : 'password'"
                     class="form-control"
                     id="password"
+                    v-model="password"
                     autocomplete="cc-number"
                   />
                   <i
@@ -65,9 +137,7 @@ const handleLogin = () => {
                 <div
                   class="d-flex align-items-center justify-content-between gap-3 flex-md-row flex-column"
                 >
-                  <button @click="handleLogin" type="button" class="btn btn-primary py-2 px-5">
-                    Login
-                  </button>
+                  <button type="submit" class="btn btn-primary py-2 px-5">Login</button>
                   <small>Belum punya Akun? <router-link to="/register">Daftar</router-link></small>
                 </div>
               </form>

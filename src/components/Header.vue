@@ -1,6 +1,9 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { globalStore } from '../stores/global'
+
+const store = globalStore()
 const location = useRoute()
 
 const disabled = computed(() => location.path == '/')
@@ -48,7 +51,15 @@ const toggle = (evt) => {
             <router-link active-class="active disabled" to="/kontak-kami">Kontak</router-link>
           </li>
 
-          <li class="d-lg-none d-flex text-light ps-3">
+          <li v-if="store.isLogin">
+            <router-link
+              @click="toggle($event.target)"
+              active-class="active disabled"
+              to="/dashboard"
+              >{{ store.user.name }}</router-link
+            >
+          </li>
+          <li v-else class="d-lg-none d-flex text-light ps-3">
             <router-link
               @click="toggle($event.target)"
               active-class="active disabled"
@@ -71,21 +82,34 @@ const toggle = (evt) => {
       <!-- .navbar -->
 
       <!-- desktop views -->
+
       <div class="d-lg-block d-none">
-        <router-link
-          @click="toggle($event.target)"
-          active-class="active disabled"
-          class="btn btn-success py-2 px-4 me-2"
-          to="/login"
-          >Login</router-link
-        >
-        <router-link
-          @click="toggle($event.target)"
-          active-class="active disabled"
-          class="btn btn-outline-light py-2 px-4"
-          to="/register"
-          >Daftar</router-link
-        >
+        <div v-if="store.isLogin">
+          <router-link
+            @click="toggle($event.target)"
+            active-class="active disabled"
+            to="/dashboard"
+            class="text-decoration-none text-light d-flex align-items-center"
+          >
+            <i class="bi bi-person fs-3 me-1"></i>{{ store.user.name }}</router-link
+          >
+        </div>
+        <div v-else>
+          <router-link
+            @click="toggle($event.target)"
+            active-class="active disabled"
+            class="btn btn-success py-2 px-4 me-2"
+            to="/login"
+            >Login</router-link
+          >
+          <router-link
+            @click="toggle($event.target)"
+            active-class="active disabled"
+            class="btn btn-outline-light py-2 px-4"
+            to="/register"
+            >Daftar</router-link
+          >
+        </div>
       </div>
       <!-- end -->
     </div>

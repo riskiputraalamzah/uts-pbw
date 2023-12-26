@@ -1,7 +1,12 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import { globalStore } from '@/stores/global'
+import axios from 'axios'
+
+const store = globalStore()
 const location = useRoute()
+const router = useRouter()
 
 const disabled = computed(() => location.path == '/dashboard')
 
@@ -19,6 +24,42 @@ const toggle = (evt) => {
 }
 const activeDropdown = ref(false)
 const toggleDropdown = () => (activeDropdown.value = !activeDropdown.value)
+
+const handleLogout = async () => {
+  const confirm = window.confirm('Anda yakin ?')
+  if (confirm) {
+    store.toggleLoadingAction()
+    const result = await axios
+      .post('/api/logout', {
+        username: store.user.username
+      })
+      .then((response) => response)
+      .catch(({ response }) => response)
+    // store.toggleLoadingAction()
+    // return console.log(result)
+    const { status, statusText } = result.request
+
+    if (status == 200) {
+      // berhasil
+      const { data, message } = result.data
+
+      localStorage.removeItem('token')
+      localStorage.removeItem('isLogin')
+      localStorage.removeItem('user')
+
+      store.userLogout()
+      router.push('/')
+
+      setTimeout(() => {
+        store.myAlert(true, 'success', message, [data])
+      }, 1200)
+    }
+
+    const { message } = result.data
+    store.myAlert(true, 'danger', statusText, [message])
+    store.toggleLoadingAction()
+  }
+}
 </script>
 <template>
   <header id="header" class="fixed-top">
@@ -38,6 +79,9 @@ const toggleDropdown = () => (activeDropdown.value = !activeDropdown.value)
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li @click="toggle($event.target)">
+            <router-link active-class="active disabled" to="/">Home</router-link>
+          </li>
           <li @click="toggle($event.target)">
             <router-link active-class="active disabled" to="/dashboard">Dashboard</router-link>
           </li>
@@ -68,13 +112,13 @@ const toggleDropdown = () => (activeDropdown.value = !activeDropdown.value)
           </li>
 
           <li class="d-lg-none d-flex text-light ps-3">
-            <router-link
-              @click="toggle($event.target)"
-              active-class="active disabled"
+            <button
+              type="button"
+              @click="handleLogout"
               class="btn btn-danger text-light py-2 px-4 me-2"
-              to="/login"
-              >Logout</router-link
             >
+              Logout
+            </button>
           </li>
         </ul>
 
@@ -84,13 +128,9 @@ const toggleDropdown = () => (activeDropdown.value = !activeDropdown.value)
 
       <!-- desktop views -->
       <div class="d-lg-block d-none">
-        <router-link
-          @click="toggle($event.target)"
-          active-class="active disabled"
-          class="btn btn-danger py-2 px-4 me-2"
-          to="/login"
-          >Logout</router-link
-        >
+        <button type="button" @click="handleLogout" class="btn btn-danger py-2 px-4 me-2">
+          Logout
+        </button>
       </div>
       <!-- end -->
     </div>
