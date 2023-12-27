@@ -56,7 +56,9 @@ const toggle = (evt) => {
               @click="toggle($event.target)"
               active-class="active disabled"
               to="/dashboard"
-              >{{ store.user.name }}</router-link
+              class="text-decoration-none d-flex align-items-center justify-content-start ps-2"
+            >
+              <i class="bi bi-person fs-3 me-1"></i>{{ store.user.name }}</router-link
             >
           </li>
           <li v-else class="d-lg-none d-flex text-light ps-3">

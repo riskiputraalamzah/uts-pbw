@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { globalStore } from '@/stores/global'
 import axios from 'axios'
@@ -40,7 +40,11 @@ const handleLogin = async () => {
   if (check.length > 0) {
     store.myAlert(true, 'danger', 'Failed', check)
     store.toggleLoadingAction()
-    return (disabled = false)
+    setTimeout(() => {
+      disabled = false
+    }, 3000)
+
+    return true
   }
 
   await axios.get('/sanctum/csrf-cookie')
@@ -53,7 +57,7 @@ const handleLogin = async () => {
     .then((response) => response)
     .catch((error) => error)
 
-  console.log(result)
+  store.toggleLoadingAction()
 
   const { status, statusText } = result.request
 
@@ -67,8 +71,6 @@ const handleLogin = async () => {
 
     store.userLogin(user)
 
-    store.toggleLoadingAction()
-
     router.push('/dashboard')
     setTimeout(() => {
       store.myAlert(true, 'success', 'Login', ['Anda berhasil Login'])
@@ -80,13 +82,19 @@ const handleLogin = async () => {
   username.value = ''
   password.value = ''
 
-  usernameElement.value.focus()
+  focusUsername()
 
   const { data } = result.response
   store.myAlert(true, 'danger', statusText, [data.message])
-  store.toggleLoadingAction()
+
   disabled = false
 }
+
+const focusUsername = () => usernameElement.value.focus()
+
+onMounted(() => {
+  focusUsername()
+})
 </script>
 <template>
   <main id="main">

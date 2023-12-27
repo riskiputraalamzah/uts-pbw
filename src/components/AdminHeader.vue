@@ -29,18 +29,22 @@ const handleLogout = async () => {
   const confirm = window.confirm('Anda yakin ?')
   if (confirm) {
     store.toggleLoadingAction()
+
+    await axios.get('/sanctum/csrf-cookie')
     const result = await axios
       .post('/api/logout', {
         username: store.user.username
       })
       .then((response) => response)
       .catch(({ response }) => response)
-    // store.toggleLoadingAction()
+
+    store.toggleLoadingAction()
     // return console.log(result)
     const { status, statusText } = result.request
 
     if (status == 200) {
       // berhasil
+
       const { data, message } = result.data
 
       localStorage.removeItem('token')
@@ -49,15 +53,14 @@ const handleLogout = async () => {
 
       store.userLogout()
       router.push('/')
-
       setTimeout(() => {
         store.myAlert(true, 'success', message, [data])
       }, 1200)
+      return true
     }
 
     const { message } = result.data
     store.myAlert(true, 'danger', statusText, [message])
-    store.toggleLoadingAction()
   }
 }
 </script>
