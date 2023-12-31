@@ -51,7 +51,7 @@ const toggle = (evt) => {
             <router-link active-class="active disabled" to="/kontak-kami">Kontak</router-link>
           </li>
 
-          <li v-if="store.isLogin">
+          <li v-if="store.isLogin" class="d-lg-none d-flex">
             <router-link
               @click="toggle($event.target)"
               active-class="active disabled"

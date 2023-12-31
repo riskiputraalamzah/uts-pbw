@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { globalStore } from '../stores/global'
+import { useContactsStore } from '../stores/contacts'
 import HomeView from '../views/Default/HomeView.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css' // You can also use <link> for styles
@@ -87,7 +88,8 @@ const router = createRouter({
       meta: {
         admin: true,
         parent: true,
-        requiresAuth: true
+        requiresAuth: true,
+        noLoadingScreen: true
       },
       children: [
         {
@@ -108,12 +110,50 @@ const router = createRouter({
         {
           path: 'galeri',
           name: 'manage_galeri',
-          component: () => import('../views/Admin/MenuGaleri/Main.vue')
+          component: () => import('../views/Admin/MenuGaleri/Main.vue'),
+          children: [
+            {
+              meta: { noLoadingScreen: true },
+              path: 'add',
+              name: 'addGaleri',
+              component: () => import('../views/Admin/MenuGaleri/Add.vue')
+            },
+            {
+              meta: { noLoadingScreen: true },
+              path: ':id',
+              name: 'detailGaleri',
+              component: () => import('../views/Admin/MenuGaleri/Detail.vue')
+            },
+            {
+              meta: { noLoadingScreen: true },
+              path: 'edit/:id',
+              name: 'editGaleri',
+              component: () => import('../views/Admin/MenuGaleri/Edit.vue')
+            }
+          ]
         },
         {
           path: 'kontak-kami',
           name: 'manage_kontak',
-          component: () => import('../views/Admin/MenuKontak/Main.vue')
+          component: () => import('../views/Admin/MenuKontak/Main.vue'),
+
+          children: [
+            {
+              path: 'add',
+              name: 'addContact',
+              component: () => import('../views/Admin/MenuKontak/Add.vue')
+            },
+            {
+              path: ':slug',
+              name: 'detailContact',
+              component: () => import('../views/Admin/MenuKontak/Detail.vue')
+            },
+            {
+              path: 'edit/:slug',
+              name: 'editContact',
+              component: () => import('../views/Admin/MenuKontak/Edit.vue')
+            }
+          ]
         }
       ]
     }
@@ -127,17 +167,21 @@ const toggleScrollBody = () => {
   document.body.classList.toggle('overflow-hidden')
 }
 router.beforeEach((to, from, next) => {
-  toggleScrollBody()
-  toggleLoading()
+  const store = globalStore()
+
+  if (!to.meta.noLoadingScreen) {
+    toggleScrollBody()
+    toggleLoading()
+  }
   if (to.meta.requiresAuth) {
     const token = localStorage.getItem('token')
     if (token) {
       next()
     } else {
-      const store = globalStore()
-
-      toggleScrollBody()
-      toggleLoading()
+      if (!to.meta.noLoadingScreen) {
+        toggleScrollBody()
+        toggleLoading()
+      }
 
       next('/login')
 
@@ -153,8 +197,10 @@ router.beforeEach((to, from, next) => {
 })
 router.afterEach((to, from) => {
   setTimeout(() => {
-    toggleScrollBody()
-    toggleLoading()
+    if (!to.meta.noLoadingScreen) {
+      toggleScrollBody()
+      toggleLoading()
+    }
     AOS.init({
       offset: 100,
       once: true

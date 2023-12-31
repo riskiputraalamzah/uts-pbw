@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { globalStore } from '@/stores/global'
+import Swal from 'sweetalert2'
 import axios from 'axios'
 
 const store = globalStore()
@@ -25,43 +26,55 @@ const toggle = (evt) => {
 const activeDropdown = ref(false)
 const toggleDropdown = () => (activeDropdown.value = !activeDropdown.value)
 
-const handleLogout = async () => {
-  const confirm = window.confirm('Anda yakin ?')
-  if (confirm) {
-    store.toggleLoadingAction()
+const alertLogout = () => {
+  Swal.fire({
+    title: 'Logout',
+    text: 'Sesi Anda akan dihapus',
+    showCancelButton: true,
 
-    await axios.get('/sanctum/csrf-cookie')
-    const result = await axios
-      .post('/api/logout', {
-        username: store.user.username
-      })
-      .then((response) => response)
-      .catch(({ response }) => response)
-
-    store.toggleLoadingAction()
-    // return console.log(result)
-    const { status, statusText } = result.request
-
-    if (status == 200) {
-      // berhasil
-
-      const { data, message } = result.data
-
-      localStorage.removeItem('token')
-      localStorage.removeItem('isLogin')
-      localStorage.removeItem('user')
-
-      store.userLogout()
-      router.push('/')
-      setTimeout(() => {
-        store.myAlert(true, 'success', message, [data])
-      }, 1200)
-      return true
+    icon: 'warning'
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      handleLogout()
     }
+  })
+}
 
-    const { message } = result.data
-    store.myAlert(true, 'danger', statusText, [message])
+const handleLogout = async () => {
+  store.toggleLoadingAction()
+
+  await axios.get('/sanctum/csrf-cookie')
+  const result = await axios
+    .post('/api/logout', {
+      username: store.user.username
+    })
+    .then((response) => response)
+    .catch(({ response }) => response)
+
+  store.toggleLoadingAction()
+  // return console.log(result)
+  const { status, statusText } = result.request
+
+  if (status == 200) {
+    // berhasil
+
+    const { data, message } = result.data
+
+    localStorage.removeItem('token')
+    localStorage.removeItem('isLogin')
+    localStorage.removeItem('user')
+
+    store.userLogout()
+    router.push('/')
+    setTimeout(() => {
+      store.myAlert(true, 'success', message, [data])
+    }, 1200)
+    return true
   }
+
+  const { message } = result.data
+  store.myAlert(true, 'danger', statusText, [message])
 }
 </script>
 <template>
@@ -117,7 +130,7 @@ const handleLogout = async () => {
           <li class="d-lg-none d-flex text-light ps-3">
             <button
               type="button"
-              @click="handleLogout"
+              @click="alertLogout"
               class="btn btn-danger text-light py-2 px-4 me-2"
             >
               Logout
@@ -131,7 +144,7 @@ const handleLogout = async () => {
 
       <!-- desktop views -->
       <div class="d-lg-block d-none">
-        <button type="button" @click="handleLogout" class="btn btn-danger py-2 px-4 me-2">
+        <button type="button" @click="alertLogout" class="btn btn-danger py-2 px-4 me-2">
           Logout
         </button>
       </div>

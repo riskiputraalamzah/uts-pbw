@@ -4,7 +4,12 @@ import App from './App.vue'
 import Dev from './Dev.vue'
 import router from './router'
 
-const isDevelopment = true
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
+import VueLazyload from 'vue-lazyload'
+
+const isDevelopment = false
 //import axios
 import axios from 'axios'
 /**
@@ -20,10 +25,12 @@ axios.defaults.withCredentials = true
 // set default base url
 axios.defaults.baseURL = 'http://localhost:8000/'
 
-const app = createApp(isDevelopment ? Dev : App)
 const pinia = createPinia()
+const app = createApp(isDevelopment ? Dev : App)
 
-app.use(router, axios)
 app.use(pinia)
+app.use(router, axios)
+app.use(VueSweetalert2)
+app.use(VueLazyload)
 
 app.mount('#app')

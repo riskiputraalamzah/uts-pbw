@@ -4,6 +4,7 @@ import AdminHeader from '../../components/AdminHeader.vue'
 <template>
   <div>
     <AdminHeader />
+
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />

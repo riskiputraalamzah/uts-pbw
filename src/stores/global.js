@@ -5,7 +5,10 @@ export const globalStore = defineStore('global', {
       alert: {},
       loadingAction: false,
       isLogin: localStorage.getItem('isLogin') == 'true',
-      user: JSON.parse(localStorage.getItem('user'))
+      user: JSON.parse(localStorage.getItem('user')),
+      halamanUser: {
+        gallaries: null
+      }
     }
   },
   actions: {
